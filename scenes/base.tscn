@@ -1,53 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7kvgglwmeb0f"]
+[gd_scene load_steps=4 format=3 uid="uid://b7kvgglwmeb0f"]
 
-[ext_resource type="Texture2D" uid="uid://b7iaxigovyipq" path="res://assets/doors/DOOR.png" id="1_pvqg0"]
 [ext_resource type="Script" uid="uid://cfk7ggd7ahg6x" path="res://src/view.gd" id="1_t45w4"]
-[ext_resource type="Texture2D" uid="uid://5ytydb8xlj8b" path="res://icon.svg" id="2_baglu"]
-[ext_resource type="Texture2D" uid="uid://ccn8edjtphhp2" path="res://assets/doors/emptiness(actually a door).png" id="4_h5ip5"]
+[ext_resource type="Texture2D" uid="uid://508yef0vx76" path="res://assets/layout/scetch2.png" id="2_baglu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t45w4"]
-size = Vector2(360, 360)
+size = Vector2(495, 880)
 
 [node name="base" type="Node"]
 
-[node name="view" type="Node2D" parent="."]
+[node name="shift" type="Node2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="view" type="Node2D" parent="shift"]
 script = ExtResource("1_t45w4")
 
-[node name="Camera2D" type="Camera2D" parent="view"]
+[node name="Camera2D" type="Camera2D" parent="shift/view"]
 
-[node name="DOOR" type="Sprite2D" parent="view"]
-texture = ExtResource("1_pvqg0")
-
-[node name="effects" type="Node2D" parent="view"]
-visible = false
-
-[node name="knock-effect" type="Sprite2D" parent="view/effects"]
+[node name="DOOR" type="Sprite2D" parent="shift/view"]
 texture = ExtResource("2_baglu")
 
-[node name="Timer" type="Timer" parent="view"]
+[node name="effects" type="Node2D" parent="shift/view"]
+position = Vector2(-360, -640)
+
+[node name="Timer" type="Timer" parent="shift/view"]
 wait_time = 0.5
 one_shot = true
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="view"]
-position = Vector2(180, -187)
-scale = Vector2(1, 1.067)
+[node name="TouchScreenButton" type="TouchScreenButton" parent="shift/view"]
+position = Vector2(0, -59)
 shape = SubResource("RectangleShape2D_t45w4")
 action = "Knock"
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="shift"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="UI"]
-layout_mode = 0
-offset_left = -356.0
-offset_top = -642.0
-offset_right = -13.0
-offset_bottom = -19.0
-action_mode = 0
-texture_normal = ExtResource("4_h5ip5")
-
-[connection signal="timeout" from="view/Timer" to="view" method="_on_timer_timeout"]
-[connection signal="pressed" from="UI/TextureButton" to="view" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="shift/view/Timer" to="shift/view" method="_on_timer_timeout"]
