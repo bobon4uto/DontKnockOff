@@ -1,10 +1,418 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7kvgglwmeb0f"]
+[gd_scene load_steps=19 format=3 uid="uid://b7kvgglwmeb0f"]
 
 [ext_resource type="Script" uid="uid://cfk7ggd7ahg6x" path="res://src/view.gd" id="1_t45w4"]
-[ext_resource type="Texture2D" uid="uid://508yef0vx76" path="res://assets/layout/scetch2.png" id="2_baglu"]
+[ext_resource type="Texture2D" uid="uid://qtq1vgchfp8n" path="res://assets/ppl/man3.png" id="2_vqfsp"]
+[ext_resource type="Texture2D" uid="uid://nri1afuo7gvi" path="res://assets/ppl/man.png" id="3_h5ip5"]
+[ext_resource type="Texture2D" uid="uid://c08da4yp16mlu" path="res://assets/hands/ZA_HANDO.png" id="3_t45w4"]
+[ext_resource type="Texture2D" uid="uid://tjrupn8t7nku" path="res://assets/ppl/man2.png" id="4_40w10"]
+[ext_resource type="Texture2D" uid="uid://b8f01gkypcnii" path="res://assets/ppl/man4.png" id="5_i6jx3"]
+[ext_resource type="Texture2D" uid="uid://bb8pkvnwgwtoi" path="res://assets/layout/KNOCKOFF.png" id="5_xvvcp"]
+[ext_resource type="Texture2D" uid="uid://bscg4dunhbnt6" path="res://assets/layout/KNOCKON.png" id="6_hh5oj"]
+[ext_resource type="LabelSettings" uid="uid://dibv1a3peoqm7" path="res://assets/new_label_settings.tres" id="7_hh5oj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40w10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqfsp")
+}],
+"loop": true,
+"name": &"arch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_40w10")
+}],
+"loop": true,
+"name": &"hand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h5ip5")
+}],
+"loop": true,
+"name": &"man",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i6jx3")
+}],
+"loop": true,
+"name": &"snail",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t45w4"]
 size = Vector2(495, 880)
+
+[sub_resource type="Animation" id="Animation_t45w4"]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_poly:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_poly:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-248, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door_poly:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h5ip5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_poly:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_poly:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door_poly:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../ProgressBar:min_value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../ProgressBar:max_value")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../ProgressBar:value")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../ProgressBar:step")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("knockoff:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("knockoff:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../UI/say1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../UI/say2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../UI/say3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("knockon:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("knockon:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_40w10"]
+resource_name = "talk"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../ProgressBar:min_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../ProgressBar:max_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../ProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../ProgressBar:step")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.1, 0.1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../UI/say1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.99, 12.4131),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../UI/say2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.01, 12.4131),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../UI/say3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8.03, 12.4131),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("knockon:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(10.9177, 12.0177, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("knockon:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(10.9177, 12.5, 12.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hh5oj"]
+resource_name = "KNOCKOFF"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("knockoff:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("knockoff:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.0693481),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40w10"]
+_data = {
+&"KNOCKOFF": SubResource("Animation_hh5oj"),
+&"RESET": SubResource("Animation_h5ip5"),
+&"open": SubResource("Animation_t45w4"),
+&"talk": SubResource("Animation_40w10")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_t45w4"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t45w4"]
+bg_color = Color(0.180392, 0.784314, 0.6, 1)
 
 [node name="base" type="Node"]
 
@@ -14,10 +422,32 @@ position = Vector2(360, 640)
 [node name="view" type="Node2D" parent="shift"]
 script = ExtResource("1_t45w4")
 
-[node name="Camera2D" type="Camera2D" parent="shift/view"]
+[node name="Polygon2D" type="Polygon2D" parent="shift/view"]
+polygon = PackedVector2Array(-438, -689, -484, 703, 509, 726, 431, -693)
 
-[node name="DOOR" type="Sprite2D" parent="shift/view"]
-texture = ExtResource("2_baglu")
+[node name="floor" type="Polygon2D" parent="shift/view"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-360, 381, -360, 388, 360, 388, 360, 381)
+
+[node name="door_frame" type="Polygon2D" parent="shift/view"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-248, -499, 248, -499, 248, 381, -248, 381)
+
+[node name="door_frame2" type="Polygon2D" parent="shift/view"]
+scale = Vector2(0.99, 0.99)
+polygon = PackedVector2Array(-248, -499, 248, -499, 248, 381, -248, 381)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="shift/view"]
+position = Vector2(-1.5, -30.5)
+scale = Vector2(1.94581, 1.91948)
+sprite_frames = SubResource("SpriteFrames_40w10")
+animation = &"snail"
+
+[node name="door_poly" type="Polygon2D" parent="shift/view"]
+color = Color(0.588235, 0.294118, 0, 1)
+polygon = PackedVector2Array(-248, -499, 248, -499, 248, 381, -248, 381)
+
+[node name="Camera2D" type="Camera2D" parent="shift/view"]
 
 [node name="effects" type="Node2D" parent="shift/view"]
 position = Vector2(-360, -640)
@@ -31,10 +461,103 @@ position = Vector2(0, -59)
 shape = SubResource("RectangleShape2D_t45w4")
 action = "Knock"
 
+[node name="hand" type="Node2D" parent="shift/view"]
+position = Vector2(108.575, 404.32)
+
+[node name="Sprite" type="Sprite2D" parent="shift/view/hand"]
+position = Vector2(96.7, 134.67)
+texture = ExtResource("3_t45w4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shift/view"]
+libraries = {
+&"": SubResource("AnimationLibrary_40w10")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="shift/view"]
+libraries = {
+&"": SubResource("AnimationLibrary_40w10")
+}
+
+[node name="Timer2" type="Timer" parent="shift/view"]
+one_shot = true
+
+[node name="knockon" type="Sprite2D" parent="shift/view"]
+texture = ExtResource("6_hh5oj")
+
+[node name="knockoff" type="Sprite2D" parent="shift/view"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("5_xvvcp")
+
 [node name="UI" type="Control" parent="shift"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="shift/UI"]
+layout_mode = 0
+offset_left = -327.0
+offset_top = 393.0
+offset_right = 25.0
+offset_bottom = 630.0
+text = "Level 1
+Knock on the door
+(you can use spacebar or tap/click on it)
+"
+label_settings = SubResource("LabelSettings_t45w4")
+autowrap_mode = 3
+
+[node name="say1" type="Label" parent="shift/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -369.0
+offset_right = 234.0
+offset_bottom = -154.0
+text = "hello"
+label_settings = ExtResource("7_hh5oj")
+autowrap_mode = 3
+
+[node name="say2" type="Label" parent="shift/UI"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -190.0
+offset_right = 201.0
+offset_bottom = -87.0
+text = "how are you"
+label_settings = ExtResource("7_hh5oj")
+autowrap_mode = 3
+
+[node name="say3" type="Label" parent="shift/UI"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 53.0
+offset_right = 219.0
+offset_bottom = 136.0
+text = "bye"
+label_settings = ExtResource("7_hh5oj")
+autowrap_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_t45w4")
+max_value = 10.0
+step = 0.1
+value = 10.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_t45w4")
+max_value = 10.0
+step = 0.1
+value = 10.0
+show_percentage = false
+
 [connection signal="timeout" from="shift/view/Timer" to="shift/view" method="_on_timer_timeout"]
+[connection signal="timeout" from="shift/view/Timer2" to="shift/view" method="_on_timer_2_timeout"]
